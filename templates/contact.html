@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block title %}Contact{% endblock %} {% block
+    content %}
+
+<h1 class="fw-bold text-center mt-4 mb-4">Contact Us at Translator</h1>
+<div class="container d-flex justify-content-center align-items-center mb-3">
+    <div class="card rounded-0">
+        <div class="card-header text-center border-0">
+            <span class="fw-bold">Contact Form</span>
+        </div>
+        <div class="card-body">
+            <form class="row g-3">
+                <div class="col-12">
+                  <label for="inputEmail4" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-12">
+                  <label for="inputPassword4" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Subject</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress2" class="form-label">Message</label>
+                  <textarea
+                  class="form-control"
+                  id="inputAddress2"
+                  rows="3"
+                  name="text_input"
+                >{{ source }}</textarea>
+                </div>
+                
+                <div class="col-12">
+                  <button type="submit" class="btn btn-dark contact-btn w-100 fw-bold border-0">Submit</button>
+                </div>
+              </form>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}

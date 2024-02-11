@@ -1,0 +1,84 @@
+{% extends 'base.html' %} {% block title %}Translator{% endblock %} {% block
+  content %}
+      <h1 class="fw-bold text-center mt-4 mb-4">Welcome to Translator</h1>
+      <form action="/" method="POST" onsubmit="(e) => {e.preventDefault()}">
+        <div class="row row-cols-2 gap-3 d-flex justify-content-center mb-4">
+          <div class="card p-0 m-0 rounded-0">
+            <div class="card-header text-center border-0">
+              <select
+                class="form-select border-0"
+                aria-label="Default select example"
+                name="source_language"
+              >
+                <option selected>
+                  {% if original_language == None: %}
+                  <span class="card-header-logo">Source Language</span>
+                  {% else: %}
+                  <span class="card-header-logo"> {{original_language}}</span>
+                  {% endif %}
+                </option>
+                {% for (key, value) in languages.items() %}
+                <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="card-body">
+              <textarea
+                class="form-control border-0 rounded-0 bg-transparent"
+                id="exampleFormControlTextarea1"
+                rows="10"
+                name="text_input"
+              >{{ source }}</textarea>
+            </div>
+            <div class="card-footer text-center border-0 rounded-0">
+              <button
+                class="btn btn-dark w-100 bg-transparent border-0 fw-bold"
+                type="submit"
+                id="submit"
+                name="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+
+          <div class="card p-0 m-0 rounded-0">
+            <div class="card-header text-center border-0">
+              <select
+                class="form-select border-0"
+                aria-label="Default select example"
+                name="destination_language"
+              >
+                <option selected>
+                  {% if result_language == None: %}
+                  <span class="card-header-logo">Destination Language</span>
+                  {% else: %}
+                  <span class="card-header-logo"> {{result_language}}</span>
+                  {% endif %}
+                </option>
+                {% for (key, value) in languages.items() %}
+                <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="card-body">
+              <textarea
+                class="form-control border-0 rounded-0 bg-transparent"
+                id="exampleFormControlTextarea1"
+                rows="10"
+                name="result"
+              >{{ result }}</textarea>
+            </div>
+            <div class="card-footer text-center border-0 rounded-0">
+              <button
+                class="btn btn-dark w-100 bg-transparent border-0 fw-bold"
+                type="button" id="copy-btn"
+              >
+                Copy to Clipboard
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+{% endblock %}
