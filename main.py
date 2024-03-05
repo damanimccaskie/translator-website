@@ -123,9 +123,6 @@ def home():
         destination_language = request.form['destination_language']
         text_input = request.form['text_input']
 
-        print(source_language)
-        print(destination_language)
-        print(text_input)
         translation = translate(source_language, destination_language, text_input)
         return render_template('index.html', languages=LANGUAGES, source=text_input, result=translation, original_language=LANGUAGES[source_language], result_language=LANGUAGES[destination_language])
 
